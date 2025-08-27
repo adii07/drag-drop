@@ -1,24 +1,29 @@
 type props={
-    key:number;
     content:string;
+    initialPos:{x:number;y:number};
 }
-const Note=({content}:props)=>{
+import { forwardRef } from "react";
+
+const Note = forwardRef(({ content, initialPos, ...props }:any, ref:any) => {
 
     return (
         <div 
+            ref={ref}
         style={{position:'absolute',
-            top:0,
-            left:0,
+                left: `${initialPos?.x}px`,
+                top: `${initialPos?.y}px`,
             border:'1px solid black',
             userSelect:'none',
             width:'200px',
             padding:'8px',
             cursor:'move',
-            backgroundColor:'lightgray'
-        }}>
+            backgroundColor:'lightgray',
+            
+        }}
+            {...props}>
             <p>📌{content}</p>
         </div>
     )
-}
+})
 
 export default Note;

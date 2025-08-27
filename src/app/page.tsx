@@ -8,7 +8,7 @@ export type NoteType={
   id:number;
 }
 export default function Home() {
-  const [notes,setNotes]=useState<NoteType[]>([
+  const [notes,setNotes]=useState<any[]>([
     {text:"Note 1",id:1},
     {text:"Note 2",id:2}
   ])
